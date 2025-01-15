@@ -13,7 +13,6 @@ class _BookSearchScreenState extends State<BookSearchScreen> {
   List<dynamic> _books = [];
   bool _isLoading = false;
 
-  // Search books when the user submits the query
   Future<void> _searchBooks(String query) async {
     if (query.isEmpty) {
       setState(() {
@@ -32,7 +31,6 @@ class _BookSearchScreenState extends State<BookSearchScreen> {
       final response = await http.get(url);
 
       if (response.statusCode == 200) {
-        // Decode response and handle empty results
         final List<dynamic> results = json.decode(response.body);
         setState(() {
           _books = results;
